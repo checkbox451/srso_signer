@@ -1,10 +1,16 @@
 FROM ubuntu:20.04
 
 RUN apt-get update
-RUN apt-get install -y --no-install-recommends ca-certificates locales unzip wget
+RUN apt-get install -y --no-install-recommends \
+    ca-certificates \
+    locales \
+    tzdata \
+    unzip \
+    wget
 
 RUN locale-gen en_US.UTF-8
 ENV LANG=en_US.UTF-8
+ENV TZ=Europe/Kiev
 
 ARG KEY_PATH=/key.dat
 ARG PASSWORD_FILE=/password.txt
