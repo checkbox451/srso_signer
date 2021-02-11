@@ -13,7 +13,8 @@ ARG DOWNLOAD_URL=https://agents.checkbox.in.ua/agents/checkboxAgentSign/Linux/ch
 ARG WORKDIR=/checkbox.sign
 
 RUN wget $DOWNLOAD_URL
-RUN unzip *.zip -d $WORKDIR
+RUN unzip *.zip -d $WORKDIR || :
+RUN chmod +x $WORKDIR/srso_signer
 RUN rm -f *.zip
 
 ARG ACSK
