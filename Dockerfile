@@ -15,12 +15,11 @@ ENV TZ=Europe/Kiev
 ARG KEY_PATH=/key.dat
 ARG PASSWORD_FILE=/password.txt
 
-ARG DOWNLOAD_URL=https://agents.checkbox.in.ua/agents/checkboxAgentSign/Linux/checkbox.sign-linux-x86_64.zip
-ARG WORKDIR=/checkbox.sign
+ARG DOWNLOAD_URL=https://agents.checkbox.in.ua/agents/checkboxAgentSign/Linux/srso_signer-0.1.10-linux-x86_64.zip
+ARG WORKDIR=/srso_signer
 
 RUN wget $DOWNLOAD_URL
-RUN unzip *.zip -d $WORKDIR || :
-RUN chmod +x $WORKDIR/srso_signer
+RUN unzip *.zip -d /
 RUN rm -f *.zip
 
 ARG ACSK
