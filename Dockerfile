@@ -38,4 +38,4 @@ COPY $KEY $KEY_PATH
 RUN test $PASSWORD && echo -n $PASSWORD > $PASSWORD_FILE || :
 
 WORKDIR $WORKDIR
-CMD echo $ACSK | ./srso_signer setup && ./srso_signer start --login $LOGIN --password-file $PASSWORD_FILE ${API_URL:+--api-url $API_URL }--infinity $KEY_PATH
+CMD echo $ACSK | ./srso_signer setup && ./srso_signer start --login $LOGIN --password-file $PASSWORD_FILE ${API_URL:+--api-url $API_URL }--infinity --websocket $KEY_PATH
