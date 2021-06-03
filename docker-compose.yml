@@ -1,0 +1,21 @@
+version: "2"
+
+services:
+  srso_signer:
+    build:
+      context: ./srso_signer
+      args:
+        LOGIN: $CHECKBOX_LOGIN
+        API_URL: $CHECKBOX_API_URL
+        KEY: $CHECKBOX_KEY_PATH
+        PASSWORD: $CHECKBOX_KEY_PASS
+        ACSK: $CHECKBOX_KEY_ACSK
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+          max-file: "5"
+          max-size: 10m
+
+volumes:
+  db:
